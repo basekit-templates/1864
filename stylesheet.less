@@ -40,6 +40,17 @@ body {
     }
 }
 
+body.edit { /* border for logo on editor */
+    .widget {
+        &.logo {
+            img {
+                border: 1px dashed red;
+                margin: 0 0 30px;
+            }
+        }
+    }
+}
+
 ::-moz-selection {
     background-color: fade(@color-swatch3, 65%);
 }
@@ -352,6 +363,7 @@ nav {
 
 .widget {
     &.extendednavigation {
+        float: left;
         @media @desktop {
             display: block;
             float: left;
@@ -801,13 +813,13 @@ div[role="main"] {
                                     display: none;
                                 }
                                 .medium-spicy-icon.dietary-icon {
-                                    background-color: darken(orange, 5%);
+                                    border-color: darken(orange, 5%);
                                 }
                                 .hot-icon.dietary-icon {
-                                    background-color: darken(#860b14, 5%);
+                                    border-color: darken(#860b14, 5%);
                                 }
                                 .spicy-icon.dietary-icon {
-                                    background-color: darken(green, 5%);
+                                    border-color: darken(green, 5%);
                                 }      
                             }  /* end nutritional icons */
                         }  /* end item content container */
