@@ -710,12 +710,6 @@ div[role="main"] {
                 }
                 .menu-items {  /* Menu items container */ 
                     width: 100%;
-                    column-count: 2;
-                    column-gap: 60px;
-                    -moz-column-count: 2;
-                    -moz-column-gap: 60px; 
-                    -webkit-column-count: 2;
-                    -webkit-column-gap: 60px;
                     @media @desktop {
                         column-count: 2;
                         column-gap: 60px;
@@ -734,12 +728,6 @@ div[role="main"] {
                     }
                     li {  /* Menu items */
                         padding: 1em 0;
-                        break-inside: avoid;
-                        -webkit-column-break-inside: avoid;
-                        -moz-column-break-inside: avoid;
-                        -ms-column-break-inside: avoid;
-                        -o-column-break-inside: avoid;
-                        page-break-inside: avoid;
                         &.menu-item-promoted { /* Promoted menu item */
                             .inner-item { /* Item content container */
                                 h3 {
@@ -823,6 +811,7 @@ div[role="main"] {
                                 }      
                             }  /* end nutritional icons */
                         }  /* end item content container */
+                    .clearfix;
                     }  /* end menu items */
                 }  /* end menu items container */  
                 .menu-subsection {
@@ -1068,6 +1057,13 @@ fieldset {
 
 .widget.profile form button {
     padding-top: 8px;
+}
+
+.widget.button button.btn {
+    background-color: @font-swatch7-background-color;
+    &:hover {
+        background-color: @font-swatch7-background-color-hover;
+    }
 }
 
 /* ===============================
