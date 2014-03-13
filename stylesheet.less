@@ -1051,7 +1051,18 @@ fieldset {
     padding: 1.5em 0;
 }
 
-.signupform fieldset button, fieldset button {
+.widget.signupform fieldset input, 
+.widget.profile fieldset input {
+    @media @tablet {
+        width: 90%;
+    }
+    @media @mobile {
+        width: 100%;
+    }
+}
+
+.widget.signupform fieldset button, 
+.widget.profile fieldset button {
     height: 45px;
 }
 
