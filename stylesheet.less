@@ -253,13 +253,13 @@ h5 {
     &.sticktobottom {
         bottom: 0;
         margin: 1em 0 2.5em;
-        position: absolute;
         @media @tablet {
             display: none;
         }
         @media @mobile {
             text-align: center;
         }
+        .clearfix;
     }
     @media @tablet {
         padding: 0;
@@ -642,8 +642,12 @@ nav {
 }
 
 .bk-header {
+    overflow-y:auto;
     .widget.profile span {
         color: fade(@color-swatch7, 25%) ;
+    }
+    .widget.extendednavigation {
+        min-height:300px;
     }
 }
 
@@ -810,8 +814,8 @@ div[role="main"] {
                                     border-color: darken(green, 5%);
                                 }      
                             }  /* end nutritional icons */
+                            .clearfix;
                         }  /* end item content container */
-                    .clearfix;
                     }  /* end menu items */
                 }  /* end menu items container */  
                 .menu-subsection {
