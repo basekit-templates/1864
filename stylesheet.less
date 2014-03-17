@@ -45,7 +45,7 @@ body.edit { /* border for logo on editor */
         &.logo {
             img {
                 border: 1px dashed red;
-                margin: 0 0 30px;
+                margin: 0 0 2px;
             }
         }
     }
@@ -123,12 +123,18 @@ h5 {
     -moz-box-shadow:    9px 0px 12px 0px rgba(50, 50, 50, 0.15);
     box-shadow:         9px 0px 12px 0px rgba(50, 50, 50, 0.15);
     height: 100%;
-    min-height: 1400px;
+    overflow-y: scroll;
+    margin-left: 320px;
     padding-bottom: 40px;
     padding-top: 30px;
-    position: relative;
+    position: fixed;
     width: 65%; 
+    @media @desktop {
+        margin-left: 280px;
+    }
     @media @tablet {
+        position: relative;
+        margin-left: 0;
         width: 100%;
     }
 }
@@ -155,7 +161,7 @@ h5 {
     position: fixed;    
     height: 100%;
     width: 320px;
-    overflow-x: scroll;
+    overflow-y: scroll;
     @media @desktop {
         width: 280px;
     }
@@ -164,6 +170,7 @@ h5 {
         padding: 1em 4%;
         margin-bottom: 12em;
         position: relative;
+        overflow: visible;
         width: 100%;
     }
     .widget { 
@@ -252,13 +259,15 @@ h5 {
 .contain {
     padding: 0 2.5%;
     &.sticktobottom {
-        margin: 2em 0 2.5em;
+        bottom: 0;
+        margin: 1em 0 2.5em;
         @media @tablet {
             display: none;
         }
         @media @mobile {
             text-align: center;
         }
+        .clearfix;
     }
     @media @tablet {
         padding: 0;
@@ -403,7 +412,7 @@ nav {
                 width: 100%;
                 background-color: @color-swatch1;
                 margin: 0;
-                padding: 40px 0 0;
+                padding: 20px 0 0;
             }
             li {
                 float: left;
@@ -420,7 +429,7 @@ nav {
                 }
                 &:last-child {
                     @media @tablet {
-                        border-bottom: 1px solid fade(@color-swatch5, 25%);
+                        border-bottom: none;
                     }
                 }
 
@@ -606,8 +615,8 @@ nav {
 .widget {
     &.feature {
         display: block;
-        position:relative;
-        width:100%;
+        position: relative;
+        width: 100%;
         overflow: hidden;
         height: auto;
         .feature-bgimg {
@@ -631,20 +640,24 @@ nav {
 }
 
 .widget.socialicons {
-    float: left;
-    margin: 5em 0 1.25em;
+    margin: 5em 0 1.5em;
     span a {
         background-color: fade(@color-swatch5, 10%);
         border-radius: 50px;
         -moz-border-radius: 50px;
         -webkit-border-radius: 50px;
-        margin-right: 2px;
     }
 }
 
 .bk-header {
     .widget.profile span {
         color: fade(@color-swatch7, 25%) ;
+    }
+    .widget.extendednavigation {
+        min-height: 300px;
+        @media @tablet {
+            min-height: 0;
+        }
     }
 }
 
@@ -811,8 +824,8 @@ div[role="main"] {
                                     border-color: darken(green, 5%);
                                 }      
                             }  /* end nutritional icons */
+                            .clearfix;
                         }  /* end item content container */
-                    .clearfix;
                     }  /* end menu items */
                 }  /* end menu items container */  
                 .menu-subsection {
@@ -846,6 +859,22 @@ div[role="main"] {
             }/* end main */
         }  /* end menu */
     }  /* end widget */
+
+.main .menu-subsection {
+    border: 0;
+    background-color: transparent;
+}
+
+.menu-subsection-wrapper.menu-subsection-promoted {
+    background-color: rgba(1, 1, 1, 0.05);
+    padding: 10px 40px;
+    float: left;
+}
+
+.widget.menu .main .menu-items li.menu-item-promoted {
+    border: 5px solid rgba(1, 1, 1, 0.05);
+    padding: 20px;
+}
 
 /* ===============================
    7. Blog
@@ -1048,7 +1077,18 @@ fieldset {
     padding: 1.5em 0;
 }
 
-.signupform fieldset button, fieldset button {
+.widget.signupform fieldset input, 
+.widget.profile fieldset input {
+    @media @tablet {
+        width: 90%;
+    }
+    @media @mobile {
+        width: 100%;
+    }
+}
+
+.widget.signupform fieldset button, 
+.widget.profile fieldset button {
     height: 45px;
 }
 
